@@ -1,0 +1,14 @@
+.subject {
+  text-align: left;
+}
+
+.subject p {
+  font-size: 15px;
+}
+
+.products-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+  /* padding: 16px; */
+}
