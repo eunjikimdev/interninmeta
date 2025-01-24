@@ -7,7 +7,15 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
 
   const handleAddToCart = (product) => {
-    setCartItems([...cartItems, product]);
+    setCartItems((prev) => {
+      const isAlreadyInCart = prev.some((item) => item.id === product.id); //아이템 중 일부라도 조건에 매칭되면 true 반환
+
+      if (isAlreadyInCart) {
+        return prev.filter((item) => item.id !== product.id); //배열 아이템 일부를 걸러내어 새로운 배열을 반환
+      } else {
+        return [...prev, product];
+      }
+    });
   };
 
   const products = [

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../components/ProductListPage.css';
 import ProductCard from '../components/ProductCard';
 
-const ProductListPage = ({ products, handleAddToCart, cartItems }) => {
+const ProductListPage = ({ products, handleAddToCart }) => {
   return (
     <div>
       <div className="subject">
@@ -15,7 +15,7 @@ const ProductListPage = ({ products, handleAddToCart, cartItems }) => {
             key={product.id}
             product={product}
             onAddToCart={handleAddToCart}
-            isInCart={cartItems.some((item) => item.id === product.id)}
+            // isInCart={cartItems.some((item) => item.id === product.id)}
           />
         ))}
       </div>

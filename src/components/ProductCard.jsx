@@ -23,12 +23,20 @@ const ProductCard = ({ product, onAddToCart, isInCart }) => {
         <h3 className="productName">{product.name}</h3>
         <p className="productDescription">{product.description}</p>
         <p className="productPrice">{product.price}원</p>
-        <button
+
+        <button onClick={() => onAddToCart(product)}>
+          {setIsAdded ? ' 담김!' : '담기'}
+        </button>
+
+        <button onClick={handleClick}> 담기 </button>
+
+        {/* <button
           className={`button ${isAdded ? 'added' : ''}`}
           onClick={handleClick}
         >
           {isAdded ? '담김!' : '담기'}
-        </button>
+        </button> */}
+        {/* <button> 구매 </button> */}
       </div>
     </div>
   );
