@@ -1,11 +1,12 @@
 import './Header.css';
+import bag_icon from '../assets/bag_icon.png';
 
 const Header = (cartItems) => {
   return (
-    <div className="Header">
-      <div className="Cart">
-        {cartItems.length > 0 && <span>{cartItems.length}</span>}
-        <span>3</span>
+    <div className="header">
+      <div className="cart">
+        <img src={bag_icon} alt="bag" />
+        <div className="header-cart-count">0</div>
       </div>
     </div>
   );

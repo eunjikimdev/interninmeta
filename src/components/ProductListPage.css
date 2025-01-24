@@ -2,13 +2,20 @@
   text-align: left;
 }
 
-.subject p {
-  font-size: 15px;
+.subject > h1 {
+  font-size: 30px;
+  font-weight: 800;
+  padding-bottom: 8px;
+}
+
+.subject > p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 32px;
 }
 
 .products-list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 100px;
-  /* padding: 16px; */
+  gap: 16px;
 }

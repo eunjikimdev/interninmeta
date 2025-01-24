@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ProductCard.css';
+import tieShoes_960_720 from '../assets/tieShoes_960_720.jpg';
 
 const ProductCard = ({ product, onAddToCart, isInCart }) => {
   const [isAdded, setIsAdded] = useState(false);
@@ -11,26 +12,24 @@ const ProductCard = ({ product, onAddToCart, isInCart }) => {
 
   return (
     <div className="product-card">
-      <div className="image-div">
+      <div className="product-image-div">
         <img
-          src="public/images/shoe1.jpg"
+          src={tieShoes_960_720}
           alt={product.name}
           className="product-img"
         />
       </div>
-
-      <h3>{product.name}</h3>
-      <p>{product.description}</p>
-      <p>{product.price}</p>
-      <button
-        className={`button ${isAdded ? 'added' : ''}`}
-        onClick={handleClick}
-      >
-        {isAdded ? '담김!' : '담기'}
-      </button>
-      {/* <button onClick={handleClick} className={isInCart ? 'btn-in-cart' : ''}>
-        {isInCart ? '담김!' : '담기'}
-      </button> */}
+      <div className="product-info">
+        <h3 className="productName">{product.name}</h3>
+        <p className="productDescription">{product.description}</p>
+        <p className="productPrice">{product.price}원</p>
+        <button
+          className={`button ${isAdded ? 'added' : ''}`}
+          onClick={handleClick}
+        >
+          {isAdded ? '담김!' : '담기'}
+        </button>
+      </div>
     </div>
   );
 };
