@@ -2,6 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import Header from './components/Header';
 import ProductListPage from './pages/ProductListPage';
+import PaymentPage from './pages/PaymentPage';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -60,13 +61,14 @@ function App() {
   return (
     <>
       <Header cartItems={cartItems} />
-      <main>
+      {/* <main>
         <ProductListPage
           products={products}
           handleAddToCart={handleAddToCart}
           cartItems={cartItems}
         />
-      </main>
+      </main> */}
+      <PaymentPage />
     </>
   );
 }
