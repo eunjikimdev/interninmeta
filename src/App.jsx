@@ -1,9 +1,13 @@
 import './App.css';
+import { Routes, Route, Link, useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import Header from './components/Header';
 import ProductListPage from './pages/ProductListPage';
 import PaymentPage from './pages/PaymentPage';
 import CartPage from './pages/cartPage';
+import NotFound from './pages/NotFound.jsx';
+import Button from './components/Button';
+import ProductDetailPage from './pages/ProductDetailPage.jsx';
 
 function App() {
   const [cartItems, setCartItems] = useState([]);
@@ -59,18 +63,51 @@ function App() {
     },
   ];
 
+  const nav = useNavigate();
+
+  // const onClickButton = () => {
+  //   nav('/cart');
+  // };
+
   return (
     <>
-      {/* <Header cartItems={cartItems} /> */}
-      {/* <main>
+      {/* <Header
+        title={'보유카드'}
+        leftChild={<Button text={'left'} />}
+        rightChild={<Button text={'right'} />}
+      /> */}
+      {/* <Button
+        text={'1323'}
+        type={'DEFAULT'}
+        onClick={() => {
+          console.log('버튼누름');
+        }}
+      /> */}
+
+      <div>
+        <Link to={'/list'}>상품목록</Link>
+        <Link to={'/product'}>상품상세페이지</Link>
+        <Link to={'/payment'}>결제모듈</Link>
+        <Link to={'/cart'}>장바구니</Link>
+      </div>
+
+      {/* <button onClick={onClickButton}>xx</button> */}
+      <Routes>
+        {/* <Route path="/list" element={<ProductListPage />} /> */}
+        <Route path="/payment" element={<PaymentPage />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/product" element={<ProductDetailPage />} />
+        <Route path="*" element={<NotFound />} />
+        {/* <Header cartItems={cartItems} /> */}
+        {/* <main>
         <ProductListPage
           products={products}
           handleAddToCart={handleAddToCart}
           cartItems={cartItems}
         />
       </main> */}
-      {/* <PaymentPage /> */}
-      <CartPage />
+        {/* <PaymentPage /> */}
+      </Routes>
     </>
   );
 }

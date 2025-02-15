@@ -1,12 +1,26 @@
 import React from 'react';
 import './CartPage.css';
 import Header from '../components/Header';
+import Button from '../components/Button';
 import CartItem from '../components/cart/CartItem';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage = () => {
+  const nav = useNavigate();
+
   return (
     <>
-      <div className="cartPage-header"></div>
+      <Header
+        // title={''}
+        leftChild={
+          <Button
+            text={'<'}
+            type={'whiteType'}
+            onClick={() => nav('/product')}
+          />
+        }
+        // rightChild={<Button text={''} />}
+      />
       {/* <Header /> */}
       <section className="cart">
         {/* 카트헤더 */}
@@ -35,7 +49,7 @@ const CartPage = () => {
             <p>총금액</p>
             <p className="price">98,000원</p>
           </div>
-          <button>결제하기</button>
+          <button onClick={() => nav('/payment')}>결제하기</button>
         </div>
       </section>
     </>
