@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import Header from './components/Header';
 import ProductListPage from './pages/ProductListPage';
 import PaymentPage from './pages/PaymentPage';
@@ -9,8 +9,28 @@ import NotFound from './pages/NotFound.jsx';
 import Button from './components/Button';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
 
+const mockData = [
+  {
+    id: 10,
+    name: '브랜드A',
+    description: '편안하고 착용감이 좋은 신발',
+    price: 35000,
+  },
+  {
+    id: 11,
+    name: '브랜드B',
+    description: '편안한 컬러가 매력적인 신발',
+    price: 25000,
+  },
+];
+
+function reducer(state, action) {
+  return state;
+}
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
+  const [data, dispatch] = useReducer(reducer, [mockData]);
 
   const handleAddToCart = (product) => {
     setCartItems((prev) => {
@@ -65,25 +85,8 @@ function App() {
 
   const nav = useNavigate();
 
-  // const onClickButton = () => {
-  //   nav('/cart');
-  // };
-
   return (
     <>
-      {/* <Header
-        title={'보유카드'}
-        leftChild={<Button text={'left'} />}
-        rightChild={<Button text={'right'} />}
-      /> */}
-      {/* <Button
-        text={'1323'}
-        type={'DEFAULT'}
-        onClick={() => {
-          console.log('버튼누름');
-        }}
-      /> */}
-
       <div>
         <Link to={'/list'}>상품목록</Link>
         <Link to={'/product'}>상품상세페이지</Link>
@@ -91,7 +94,6 @@ function App() {
         <Link to={'/cart'}>장바구니</Link>
       </div>
 
-      {/* <button onClick={onClickButton}>xx</button> */}
       <Routes>
         {/* <Route path="/list" element={<ProductListPage />} /> */}
         <Route path="/payment" element={<PaymentPage />} />
@@ -106,7 +108,6 @@ function App() {
           cartItems={cartItems}
         />
       </main> */}
-        {/* <PaymentPage /> */}
       </Routes>
     </>
   );

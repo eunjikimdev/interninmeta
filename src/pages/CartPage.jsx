@@ -49,7 +49,11 @@ const CartPage = () => {
             <p>총금액</p>
             <p className="price">98,000원</p>
           </div>
-          <button onClick={() => nav('/payment')}>결제하기</button>
+          <Button
+            text={'결제하기'}
+            type={'Finish'}
+            onClick={() => nav('/payment')}
+          ></Button>
         </div>
       </section>
     </>
