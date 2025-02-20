@@ -1,6 +1,6 @@
 import './App.css';
 import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import Header from './components/Header';
 import ProductListPage from './pages/ProductListPage';
 import PaymentPage from './pages/PaymentPage';
@@ -10,28 +10,19 @@ import Button from './components/Button';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import ContextData from './components/context/ContextData.jsx';
 
-const mockData = [
-  {
-    id: 10,
-    name: '브랜드A',
-    description: '편안하고 착용감이 좋은 신발',
-    price: 35000,
-  },
-  {
-    id: 11,
-    name: '브랜드B',
-    description: '편안한 컬러가 매력적인 신발',
-    price: 25000,
-  },
-];
-
-function reducer(state, action) {
-  return state;
-}
-
 function App() {
   const [cartItems, setCartItems] = useState([]);
-  const [data, dispatch] = useReducer(reducer, [mockData]);
+
+  const [products, setProducts] = useState([]); //상태를 생성
+
+  useEffect(() => {
+    fetch('/data/db.json', { method: 'GET' })
+      .then((res) => res.json()) //메소드를 사용해 어떤 형태로 응답 본문을 처리할건지 정함
+      .then((data) => {
+        setProducts(data.products); // 인자에 배열형태의 데이터가 들어있음. 받아온 데이터를 상태에 저장
+      })
+      .catch((err) => console.error('데이터 불러오기 실패:', err));
+  }, []);
 
   const handleAddToCart = (product) => {
     setCartItems((prev) => {
@@ -44,45 +35,6 @@ function App() {
       }
     });
   };
-
-  const products = [
-    {
-      id: 1,
-      name: '브랜드A',
-      description: '편안하고 착용감이 좋은 신발',
-      price: 35000,
-    },
-    {
-      id: 2,
-      name: '브랜드B',
-      description: '편안한 컬러가 매력적인 신발',
-      price: 25000,
-    },
-    {
-      id: 3,
-      name: '브랜드C',
-      description: '편안하고 착용감이 좋은 신발',
-      price: 25000,
-    },
-    {
-      id: 4,
-      name: '브랜드A',
-      description: '편안하고 착용감이 좋은 신발',
-      price: 35000,
-    },
-    {
-      id: 5,
-      name: '브랜드B',
-      description: '편안한 컬러가 매력적인 신발',
-      price: 25000,
-    },
-    {
-      id: 6,
-      name: '브랜드C',
-      description: '편안하고 착용감이 좋은 신발',
-      price: 25000,
-    },
-  ];
 
   const nav = useNavigate();
   return (
