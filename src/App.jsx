@@ -8,6 +8,7 @@ import CartPage from './pages/cartPage';
 import NotFound from './pages/NotFound.jsx';
 import Button from './components/Button';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
+import ContextData from './components/context/ContextData.jsx';
 
 const mockData = [
   {
@@ -84,7 +85,6 @@ function App() {
   ];
 
   const nav = useNavigate();
-
   return (
     <>
       <div>
@@ -94,21 +94,15 @@ function App() {
         <Link to={'/cart'}>장바구니</Link>
       </div>
 
-      <Routes>
-        {/* <Route path="/list" element={<ProductListPage />} /> */}
-        <Route path="/payment" element={<PaymentPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="/product" element={<ProductDetailPage />} />
-        <Route path="*" element={<NotFound />} />
-        {/* <Header cartItems={cartItems} /> */}
-        {/* <main>
-        <ProductListPage
-          products={products}
-          handleAddToCart={handleAddToCart}
-          cartItems={cartItems}
-        />
-      </main> */}
-      </Routes>
+      <ContextData.Provider value={{ cartItems, products, handleAddToCart }}>
+        <Routes>
+          <Route path="/list" element={<ProductListPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/product" element={<ProductDetailPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </ContextData.Provider>
     </>
   );
 }

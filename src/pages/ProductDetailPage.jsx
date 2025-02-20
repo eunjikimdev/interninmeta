@@ -16,6 +16,7 @@ const ProductDetailPage = () => {
           <Button text={'ㅁ'} type={'whiteType'} onClick={() => nav('/cart')} />
         }
       />
+      <h1>내용 아직 없음</h1>
     </>
   );
 };

@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import '../components/ProductListPage.css';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header';
 import Button from '../components/Button';
-
-const ProductListPage = ({ products, handleAddToCart }) => {
+import ContextData from '../components/context/ContextData';
+const ProductListPage = () => {
+  const { products, handleAddToCart } = useContext(ContextData);
   return (
     <div>
-      <Header
+      {/* <Header
         title={'보유카드'}
         leftChild={<Button text={'left'} />}
         rightChild={<Button text={'right'} />}
-      />
+      /> */}
       <div className="subject">
         <h1>신발 상품 목록</h1>
         <p>현재 {products.length}개의 상품이 있습니다.</p>
