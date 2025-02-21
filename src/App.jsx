@@ -11,9 +11,8 @@ import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import ContextData from './components/context/ContextData.jsx';
 
 function App() {
-  const [cartItems, setCartItems] = useState([]);
-
   const [products, setProducts] = useState([]); //상태를 생성
+  const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     fetch('/data/db.json', { method: 'GET' })
@@ -29,6 +28,7 @@ function App() {
       const isAlreadyInCart = prev.some((item) => item.id === product.id); //아이템 중 일부라도 조건에 매칭되면 true 반환
 
       if (isAlreadyInCart) {
+        //이미 있는 상품이면 수량만 증가
         return prev.filter((item) => item.id !== product.id); //배열 아이템 일부를 걸러내어 새로운 배열을 반환
       } else {
         return [...prev, product];
@@ -41,7 +41,7 @@ function App() {
     <>
       <div>
         <Link to={'/list'}>상품목록</Link>
-        <Link to={'/product'}>상품상세페이지</Link>
+        <Link to={'/product/${product.id}'}>상품상세페이지</Link>
         <Link to={'/payment'}>결제모듈</Link>
         <Link to={'/cart'}>장바구니</Link>
       </div>
@@ -51,7 +51,7 @@ function App() {
           <Route path="/list" element={<ProductListPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/cart" element={<CartPage />} />
-          <Route path="/product" element={<ProductDetailPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ContextData.Provider>
