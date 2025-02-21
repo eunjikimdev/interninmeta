@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './ProductCard.css';
-import tieShoes_960_720 from '../assets/tieShoes_960_720.jpg';
 
-const ProductCard = ({ product, onAddToCart, isInCart }) => {
+const ProductCard = ({ product, onAddToCart }) => {
   const [isAdded, setIsAdded] = useState(false);
 
   const handleClick = () => {
@@ -13,11 +12,7 @@ const ProductCard = ({ product, onAddToCart, isInCart }) => {
   return (
     <div className="product-card">
       <div className="product-image-div">
-        <img
-          src={tieShoes_960_720}
-          alt={product.name}
-          className="product-img"
-        />
+        <img src={product.image} alt={product.name} className="product-img" />
       </div>
       <div className="product-info">
         <h3 className="productName">{product.name}</h3>
@@ -28,7 +23,7 @@ const ProductCard = ({ product, onAddToCart, isInCart }) => {
           {setIsAdded ? ' 담김!' : '담기'}
         </button>
 
-        <button onClick={handleClick}> 담기 </button>
+        {/* <button onClick={handleClick}> 담기 </button> */}
 
         {/* <button
           className={`button ${isAdded ? 'added' : ''}`}
