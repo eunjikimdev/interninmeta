@@ -1,0 +1,46 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "브랜드A",
+      "description": "편안하고 착용감이 좋은 신발",
+      "price": 35000,
+      "image": "/images/shoes_1.jpg"
+    },
+    {
+      "id": 2,
+      "name": "브랜드B",
+      "description": "귀여운 색감으로 유명한 신발",
+      "price": 38000,
+      "image": "/images/shoes_2.jpg"
+    },
+    {
+      "id": 3,
+      "name": "브랜드C",
+      "description": "유명 브랜드 콜라보 신발",
+      "price": 32000,
+      "image": "/images/shoes_3.jpg"
+    },
+    {
+      "id": 4,
+      "name": "브랜드D",
+      "description": "발목이 아픈 사람을 위한 신발",
+      "price": 72000,
+      "image": "/images/shoes_4.jpg"
+    },
+    {
+      "id": 5,
+      "name": "브랜드E",
+      "description": "푹신푹신한 신발",
+      "price": 31000,
+      "image": "/images/shoes_5.jpg"
+    },
+    {
+      "id": 6,
+      "name": "브랜드F",
+      "description": "아이들이 좋아하는 신발",
+      "price": 28000,
+      "image": "/images/shoes_6.jpg"
+    }
+  ]
+}

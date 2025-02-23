@@ -17,7 +17,7 @@
 </p>
 <br/>
 
-##  Projects!
+## Projects!
 
 ### 스크린샷
 
@@ -31,7 +31,6 @@
 
 ## 진행과정
 
-
 ### 🚩 3주차 요구사항
 
 - [ ] 결제모듈구현
@@ -40,6 +39,7 @@
 ```js
 
 ```
+
 - [ ] Storybook을 이용한 테스트 진행
 
 ### 배운 것
@@ -48,8 +48,7 @@
 
 ### 유용하고 감사한 리소스
 
-- [daleseo.com/vitest](https://www.daleseo.com/vitest/) - Vitest 처음 시작하기
-
+- [daleseo.com/vitest](https://www.daleseo.com/vitest/) - Vitest 처음 시작하기 -[api가-없을-때-mock-data-사용하기](https://velog.io/@jjnote22/api%EA%B0%80-%EC%97%86%EC%9D%84-%EB%95%8C-mock-data-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0) - api가-없을-때-mock-data-사용하기 -[ObjGen](https://www.objgen.com/json/local/design) - ObjGen
 
 <br/>
 
