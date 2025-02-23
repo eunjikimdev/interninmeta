@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import './ProductCard.css';
+import Button from './Button';
 
 const ProductCard = ({ product, onAddToCart }) => {
   const [isAdded, setIsAdded] = useState(false);
 
-  const handleClick = () => {
-    setIsAdded(!isAdded);
+  // const handleClick = () => {
+  //   setIsAdded(!isAdded);
+  //   onAddToCart(product);
+  // };
+
+  const handleClick = (e, product) => {
+    e.preventDefault();
     onAddToCart(product);
   };
 
@@ -19,11 +25,11 @@ const ProductCard = ({ product, onAddToCart }) => {
         <p className="productDescription">{product.description}</p>
         <p className="productPrice">{product.price}원</p>
 
-        <button onClick={() => onAddToCart(product)}>
+        {/* <button onClick={() => onAddToCart(product)}>
           {setIsAdded ? ' 담김!' : '담기'}
-        </button>
+        </button> */}
 
-        {/* <button onClick={handleClick}> 담기 </button> */}
+        <Button onClick={(e) => handleClick(e, product)} text="담기"></Button>
 
         {/* <button
           className={`button ${isAdded ? 'added' : ''}`}

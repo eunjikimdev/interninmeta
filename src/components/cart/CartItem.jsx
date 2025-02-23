@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './CartItem.css';
+import ContextData from '../context/ContextData';
 
 // const CartItem = ({id, img, title, price, amount}) => {
 //   return (
@@ -17,17 +18,33 @@ import './CartItem.css';
 // };
 
 const CartItem = () => {
+  const { item, cartItems, handleAddToCart, quantity, setQuantity } =
+    useContext(ContextData);
+
   return (
     <article className="cart-item">
-      <img src="src/assets/tieShoes_960_720.jpg" alt="브랜드A" />
+      <img src="{item.image}" alt="{item.name}" className="cart-item-image" />
       <div className="item-info">
-        <h4 className="brandName">브랜드A</h4>
-        <h3 className="item-price">35,000원</h3>
-        <div className="amount">
-          <button className="amount-btn">-</button>
-          <p className="amount-num">1</p>
-          <button className="amount-btn">+</button>
-        </div>
+        <h3 className="brandName">{item.name}</h3>
+        <p className="item-price">
+          가격: {item.price * (item.quantity || 1)}원
+        </p>
+      </div>
+      ;
+      <div className="amount">
+        <button
+          className="amount-btn"
+          onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+        >
+          -
+        </button>
+        <p className="amount-num">{item.quantity}</p>
+        <button
+          className="amount-btn"
+          onClick={() => setQuantity((prev) => Math.max(1, prev + 1))}
+        >
+          +
+        </button>
       </div>
     </article>
   );

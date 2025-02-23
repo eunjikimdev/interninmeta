@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './CartPage.css';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import CartItem from '../components/cart/CartItem';
 import { useNavigate } from 'react-router-dom';
+import ContextData from '../components/context/ContextData';
 
 const CartPage = () => {
   const nav = useNavigate();
+  const { cartItems } = useContext(ContextData);
+
+  //장바구니에 있는 모든 상품의 총 금액 계산
+  const totalProductPrice = cartItems.reduce((total, item) => {
+    return total + item.price * (item.quantity || 1);
+  }, 0);
+
+  //배송비 100000원 이상 구매시 무료
+  const shippingFee = totalProductPrice >= 100000 ? 0 : 3000;
+
+  // 상품금액 + 배송비
+  const finalPrice = totalProductPrice + shippingFee;
 
   return (
     <>
@@ -16,38 +29,37 @@ const CartPage = () => {
           <Button
             text={'<'}
             type={'whiteType'}
-            onClick={() => nav('/product')}
+            onClick={() => nav('/product/:id')}
           />
         }
         // rightChild={<Button text={''} />}
       />
-      {/* <Header /> */}
+
       <section className="cart">
-        {/* 카트헤더 */}
         <header className="cart-header">
           <h2>장바구니</h2>
-          <h3>현재 3개의 상품이 담겨있습니다.</h3>
+          <h3>현재 {cartItems.length}개의 상품이 담겨있습니다.</h3>
         </header>
-        {/* 카트아이템 */}
-        <div>
-          <CartItem />
-          <CartItem />
-          <CartItem />
+
+        <div className="cart-items">
+          {cartItems.map((item) => {
+            <CartItem key={item.id} item={item} />;
+          })}
         </div>
-        {/* 카트푸터 */}
+
         <div className="cart-total">
           <div className="cart-total-info">
             <p>상품금액</p>
-            <p className="price">95,500원</p>
+            <p className="price">{totalProductPrice.toLocaleString()}원</p>
           </div>
           <div className="cart-total-info">
             <p>배송비</p>
-            <p className="price">3,000원</p>
+            <p className="price"> {shippingFee.toLocaleString()}원</p>
           </div>
 
           <div className="cart-total-info">
             <p>총금액</p>
-            <p className="price">98,000원</p>
+            <p className="price">{finalPrice.toLocaleString()}원</p>
           </div>
           <Button
             text={'결제하기'}
