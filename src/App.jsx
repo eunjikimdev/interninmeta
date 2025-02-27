@@ -32,13 +32,13 @@ function App() {
   const handleAddToCart = (product) => {
     setCartItems((prev) => {
       //이미 장바구니에 있는 상품인지 확인
-      const existingItem = prev.some((item) => item.id === product.id);
+      const existingItem = prev.find((item) => item.id === product.id);
 
       if (existingItem) {
         //이미 있는 상품이면 수량만 증가
-        return prev.filter((item) =>
+        return prev.map((item) =>
           item.id === product.id
-            ? { ...item, quantity: (item.quantity || 1) + 1 }
+            ? { ...item, quantity: item.quantity + 1 }
             : item,
         );
       } else {
@@ -59,7 +59,7 @@ function App() {
   };
 
   //장바구니에서 상품 제거하는 함수
-  const handleRremoveFromCart = (productId) => {
+  const handleRemoveFromCart = (productId) => {
     setCartItems((prevCartItems) =>
       prevCartItems.filter((item) => item.id !== productId),
     );
@@ -82,7 +82,7 @@ function App() {
           cartItems, // 사용자가 장바구니에 담은 상품들
           handleAddToCart, // 장바구니 추가 함수
           handleUpedateQuantity, // 수량 변경 함수
-          handleRremoveFromCart, // 장바구니에서 제거하는 함수
+          handleRemoveFromCart, // 장바구니에서 제거하는 함수
         }}
       >
         <Routes>

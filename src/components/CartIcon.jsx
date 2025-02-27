@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import ContextData from './context/ContextData';
 import './CartIcon.css';
+import { Link } from 'react-router-dom';
 
 const CartIcon = () => {
   const { cartItems } = useContext(ContextData);
@@ -12,14 +13,18 @@ const CartIcon = () => {
   );
 
   return (
-    <div className="cart-icon-container">
-      <img
-        src="/images/CartIcon_white.svg"
-        alt="My Happy SVG"
-        className="cart-icon"
-      />
-      {totalItems > 0 && <span className="cart-count-badge">{totalItems}</span>}
-    </div>
+    <Link to={`/cart`}>
+      <div className="cart-icon-container">
+        <img
+          src="/images/CartIcon_white.svg"
+          alt="My Happy SVG"
+          className="cart-icon"
+        />
+        {totalItems > 0 && (
+          <span className="cart-count-badge">{totalItems}</span>
+        )}
+      </div>
+    </Link>
   );
 };
 

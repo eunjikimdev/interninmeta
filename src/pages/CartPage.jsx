@@ -29,7 +29,7 @@ const CartPage = () => {
           <Button
             text={'<'}
             type={'whiteType'}
-            onClick={() => nav('/product/:id')}
+            onClick={() => nav('/product')} // 이전페이지로 가는 걸로 수정해야함
           />
         }
         // rightChild={<Button text={''} />}
@@ -41,10 +41,11 @@ const CartPage = () => {
           <h3>현재 {cartItems.length}개의 상품이 담겨있습니다.</h3>
         </header>
 
+        {/* map안에서는 { }를 쓰면 안됌. 아니면 return을 쓰던가 */}
         <div className="cart-items">
-          {cartItems.map((item) => {
-            <CartItem key={item.id} item={item} />;
-          })}
+          {cartItems.map((item) => (
+            <CartItem key={item.id} item={item} />
+          ))}
         </div>
 
         <div className="cart-total">
