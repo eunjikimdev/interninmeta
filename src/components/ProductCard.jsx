@@ -29,7 +29,11 @@ const ProductCard = ({ product, onAddToCart }) => {
           {setIsAdded ? ' 담김!' : '담기'}
         </button> */}
 
-        <Button onClick={(e) => handleClick(e, product)} text="담기"></Button>
+        <Button
+          type={'black'}
+          onClick={(e) => handleClick(e, product)}
+          text="담기"
+        ></Button>
 
         {/* <button
           className={`button ${isAdded ? 'added' : ''}`}

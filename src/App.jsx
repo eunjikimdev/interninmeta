@@ -86,6 +86,7 @@ function App() {
         }}
       >
         <Routes>
+          <Route path="/" element={<ProductListPage />} />
           <Route path="/list" element={<ProductListPage />} />
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/cart" element={<CartPage />} />
