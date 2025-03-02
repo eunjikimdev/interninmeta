@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import './ProductCard.css';
 import Button from './Button';
+import ContextData from './context/ContextData';
 
 const ProductCard = ({ product, onAddToCart }) => {
-  const [isAdded, setIsAdded] = useState(false);
-
-  // const handleClick = () => {
-  //   setIsAdded(!isAdded);
-  //   onAddToCart(product);
-  // };
+  // const [isAdded, setIsAdded] = useState(false);
+  const { cartItems, handleAddToCart } = useContext(ContextData);
+  const isAdded = cartItems.some((item) => item.id === product.id);
 
   const handleClick = (e, product) => {
     e.preventDefault();
@@ -25,19 +23,11 @@ const ProductCard = ({ product, onAddToCart }) => {
         <p className="productDescription">{product.description}</p>
         <p className="productPrice">{product.price}원</p>
 
-        {/* <button onClick={() => onAddToCart(product)}>
-          {setIsAdded ? ' 담김!' : '담기'}
-        </button> */}
-
-        <Button onClick={(e) => handleClick(e, product)} text="담기"></Button>
-
-        {/* <button
-          className={`button ${isAdded ? 'added' : ''}`}
-          onClick={handleClick}
-        >
-          {isAdded ? '담김!' : '담기'}
-        </button> */}
-        {/* <button> 구매 </button> */}
+        <Button
+          type={isAdded ? 'grey' : 'black'}
+          onClick={(e) => handleClick(e, product)}
+          text={isAdded ? '담김!' : '담기'}
+        ></Button>
       </div>
     </div>
   );

@@ -21,13 +21,13 @@
 .brandName {
   font-size: 16px;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .item-price {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
 .amount {
@@ -51,6 +51,7 @@
   width: 24px;
   height: 24px;
   border-radius: 10px;
+  border: none;
 }
 
 .amount-num {

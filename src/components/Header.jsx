@@ -1,5 +1,7 @@
 import './Header.css';
 import bag_icon from '../assets/bag_icon.png';
+import { useContext } from 'react';
+import ContextData from './context/ContextData';
 
 // const Header = ({ cartItems }) => {
 //   return (
@@ -15,6 +17,7 @@ import bag_icon from '../assets/bag_icon.png';
 // };
 
 const Header = ({ title, leftChild, rightChild, type }) => {
+  const { handleUpedateQuantity } = useContext(ContextData);
   return (
     <header className={`Header Header_${type}`}>
       <div className="header_left">{leftChild}</div>

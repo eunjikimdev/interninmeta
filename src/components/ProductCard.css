@@ -1,7 +1,7 @@
 .product-card {
   display: flex;
   flex-direction: column;
-  width: 184px;
+  /* width: 184px; */
   /* height: 247px; */
   /* margin: 10px; */
   box-sizing: border-box;
@@ -9,6 +9,8 @@
   border-radius: 15px;
   /* padding: 10px; */
   overflow: hidden;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* overflow: hidden과 object-fit: cover를 사용하는 경우, 부모 컨테이너가 크기를 정확히 지정해야만 자식 이미지가 적절히 잘려서 표시됌 */

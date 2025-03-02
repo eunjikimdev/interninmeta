@@ -30,15 +30,29 @@
     },
     {
       "id": 5,
-      "name": "브랜드E",
+      "name": "브랜드A",
       "description": "푹신푹신한 신발",
       "price": 31000,
       "image": "/images/shoes_5.jpg"
     },
     {
       "id": 6,
-      "name": "브랜드F",
-      "description": "아이들이 좋아하는 신발",
+      "name": "브랜드B",
+      "description": "아이돌 광고제품",
+      "price": 53000,
+      "image": "/images/shoes_6.jpg"
+    },
+    {
+      "id": 7,
+      "name": "브랜드C",
+      "description": "발렌타인 에디션",
+      "price": 48000,
+      "image": "/images/shoes_6.jpg"
+    },
+    {
+      "id": 8,
+      "name": "브랜드D",
+      "description": "여름철 인기제품",
       "price": 28000,
       "image": "/images/shoes_6.jpg"
     }
