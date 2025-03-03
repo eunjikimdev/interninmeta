@@ -24,6 +24,17 @@ h3 {
   font-weight: 400;
 }
 
+.cart-items {
+  height: 536px;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+}
+
+.cart-items::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
+}
+
 .cart-total {
   padding-top: 24px;
   display: flex;
