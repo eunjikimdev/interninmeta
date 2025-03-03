@@ -26,11 +26,13 @@ const CartPage = () => {
       <Header
         // title={''}
         leftChild={
-          <Button
-            text={'<'}
-            type={'whiteType'}
-            onClick={() => nav('/product')} // 이전페이지로 가는 걸로 수정해야함
-          />
+          <div onClick={() => nav('/list')} style={{ cursor: 'pointer' }}>
+            <img
+              src="/images/arrow_white.svg"
+              alt="뒤로 가기"
+              style={{ width: '36px', height: '36px', marginLeft: '14px' }}
+            />
+          </div>
         }
         // rightChild={<Button text={''} />}
       />

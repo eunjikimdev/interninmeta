@@ -1,10 +1,16 @@
 .cart {
-  /* padding: 0 20px 0 20px; */
+  padding: 0 20px 0 20px;
 }
 
 .cart-header {
   margin-bottom: 8px;
-  padding: 12px 20px 0 20px;
+  /* padding: 12px 20px 0 20px; */
+  /* margin-bottom: 20px; */
+  margin-top: 16px;
+}
+
+.cart-header > h2 {
+  margin-bottom: 4px;
 }
 
 h2 {
@@ -32,7 +38,7 @@ h3 {
   justify-content: space-between;
   font-size: 16px;
   font-weight: 700;
-  padding: 0 20px 0 20px;
+  /* padding: 0 20px 0 20px; */
 }
 
 .cart-total-info > .price {
@@ -53,5 +59,4 @@ h3 {
   margin-top: 24px;
   font-size: 20px;
   font-weight: 300;
-  margin: 0 20px 0 20px;
 }

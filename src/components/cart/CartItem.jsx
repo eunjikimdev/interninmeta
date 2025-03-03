@@ -10,7 +10,9 @@ const CartItem = ({ item }) => {
       <img src={item.image} alt={item.name} className="cart-item-image" />
       <div className="item-info">
         <h3 className="brandName">{item.name}</h3>
-        <p className="item-price">{item.price * (item.quantity || 1)}원</p>
+        <p className="item-price">
+          {(item.price * (item.quantity || 1)).toLocaleString()}원
+        </p>
         <div className="amount">
           <button
             className="amount-btn"
