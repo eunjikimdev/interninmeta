@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://eunjikimdev.github.io/interninmeta/",
   "scripts": {
     "dev": "concurrently \" vite\" \"npm run start-json-server\"",
     "build": "vite build",
@@ -11,10 +12,13 @@
     "test": "vitest --ui",
     "test:run": "vitest run",
     "coverage": "vitest run --coverage",
-    "start-json-server": "json-server --watch db.json --port 3001"
+    "start-json-server": "json-server --watch db.json --port 3001",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "concurrently": "^9.1.2",
+    "gh-pages": "^6.3.0",
     "json-server": "^1.0.0-beta.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

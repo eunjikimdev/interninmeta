@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import '../components/ProductListPage.css';
+import './ProductListPage.css';
 import ProductCard from '../components/ProductCard';
 import Header from '../components/Header';
-import Button from '../components/Button';
 import ContextData from '../components/context/ContextData';
 import CartIcon from '../components/CartIcon';
 

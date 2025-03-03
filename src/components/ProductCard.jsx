@@ -21,7 +21,7 @@ const ProductCard = ({ product, onAddToCart }) => {
       <div className="product-info">
         <h3 className="productName">{product.name}</h3>
         <p className="productDescription">{product.description}</p>
-        <p className="productPrice">{product.price}원</p>
+        <p className="productPrice">{product.price.toLocaleString()}원</p>
 
         <Button
           type={isAdded ? 'grey' : 'black'}
