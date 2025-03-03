@@ -26,7 +26,7 @@ const CartPage = () => {
       <Header
         // title={''}
         leftChild={
-          <div onClick={() => nav('/list')} style={{ cursor: 'pointer' }}>
+          <div onClick={() => nav(-1)} style={{ cursor: 'pointer' }}>
             <img
               src="/images/arrow_white.svg"
               alt="뒤로 가기"
