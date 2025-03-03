@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import { useNavigate, useParams, Link } from 'react-router-dom';
 import ContextData from '../components/context/ContextData';
 import CartIcon from '../components/CartIcon';
-import './ProductListPage.css';
+import './ProductDetailPage.css';
 
 const ProductDetailPage = () => {
   const { products, handleAddToCart } = useContext(ContextData);
