@@ -1,8 +1,10 @@
 import React, { useContext, useState } from 'react';
 import Header from '../components/Header';
 import Button from '../components/Button';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import ContextData from '../components/context/ContextData';
+import CartIcon from '../components/CartIcon';
+import './ProductListPage.css';
 
 const ProductDetailPage = () => {
   const { products, handleAddToCart } = useContext(ContextData);
@@ -12,6 +14,11 @@ const ProductDetailPage = () => {
 
   const product = products.find((item) => item.id === parseInt(id));
 
+  //name 값을 현재 보고 있는 상품의 데이터에서 가져와야 함.(=product.name)
+  const sameBrandProducts = products.filter(
+    (item) => item.name === product.name && item.id !== product.id,
+  );
+
   if (!product) return <p>상품을 찾을 수 없습니다!</p>;
 
   const handleAddCart = () => {
@@ -19,59 +26,68 @@ const ProductDetailPage = () => {
     for (let i = 0; i < quantity; i++) {
       handleAddToCart(product);
     }
-    nav('/cart'); // 장바구니 페이지로 이동
+    // 장바구니 페이지로 이동
+    // nav('/cart');
   };
 
   return (
     <>
       <Header
-        title={'상품상세페이지'}
+        // title={'상품상세페이지'}
         leftChild={
-          <Button text={'<'} type={'whiteType'} onClick={() => nav('/list')} />
+          <div onClick={() => nav('/list')} style={{ cursor: 'pointer' }}>
+            <img
+              src="/images/arrow_white.svg"
+              alt="뒤로 가기"
+              style={{ width: '36px', height: '36px', marginLeft: '14px' }}
+            />
+          </div>
         }
-        rightChild={
-          <Button text={'ㅁ'} type={'whiteType'} onClick={() => nav('/cart')} />
-        }
+        rightChild={<CartIcon />}
       />
-      <div className="product-image-div">
-        <img src={product.image} alt={product.name} className="product-img" />
-      </div>
-      <div className="product-info">
-        <h1>{product.name}</h1>
-        <h3>{product.description}</h3>
-        <h4>{product.price}</h4>
+      <div className="productDetail">
+        <div className="productPicutre-div">
+          <img src={product.image} alt={product.name} className="product-img" />
+        </div>
+        <div className="product-description">
+          <div className="product-info">
+            <h1>{product.name}</h1>
+            <h3>{product.description}</h3>
+            <h4>{product.price.toLocaleString()}원</h4>
+          </div>
 
-        <div className="amount">
-          <button
-            className="amount-btn"
-            onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-          >
-            -
-          </button>
-          <p className="amount-num">{quantity}</p>
-          <button
-            className="amount-btn"
-            onClick={() => setQuantity((prev) => Math.max(1, prev + 1))}
-          >
-            +
-          </button>
+          <div className="amount">
+            <button
+              className="amount-btn"
+              onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+            >
+              -
+            </button>
+            <p className="amount-num">{String(quantity).padStart(2, 0)}</p>
+            <button
+              className="amount-btn"
+              onClick={() => setQuantity((prev) => Math.max(1, prev + 1))}
+            >
+              +
+            </button>
+          </div>
         </div>
         <Button
           text={'장바구니 담기'}
           type={'Finish'}
           onClick={handleAddCart}
+          className="cartButton"
         />
-      </div>
-      <div className="otherProduct">
-        <h3>관련상품</h3>
-        <h4>{product.name}의 다른 신발은 어떠신가요?</h4>
-        <div>
-          <div className="product-image-div">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="product-img"
-            />
+
+        <div className="otherProduct">
+          <h4>관련 상품</h4>
+          <h3>{product.name}의 다른 신발은 어떠신가요?</h3>
+          <div className="otherproductList">
+            {sameBrandProducts.map((product) => (
+              <Link key={product.id} to={`/product/${product.id}`}>
+                <img src={product.image} alt={product.name}></img>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
