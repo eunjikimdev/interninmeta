@@ -8,6 +8,7 @@ export default defineConfig({
     globals: true,
     environment: 'happy-dom',
     setupFiles: './test/setup.js', // setup.js 파일 경로
-    base: '/interninmeta/',
+    // base: '/interninmeta/',
+    base: '/',
   },
 });

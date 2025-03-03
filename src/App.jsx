@@ -95,16 +95,14 @@ function App() {
           handleRemoveFromCart, // 장바구니에서 제거하는 함수
         }}
       >
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<ProductListPage />} />
-            <Route path="/list" element={<ProductListPage />} />
-            <Route path="/payment" element={<PaymentPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/product/:id" element={<ProductDetailPage />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </HashRouter>
+        <Routes>
+          <Route path="/" element={<ProductListPage />} />
+          <Route path="/list" element={<ProductListPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
       </ContextData.Provider>
     </>
   );
