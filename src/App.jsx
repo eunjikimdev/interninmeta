@@ -1,12 +1,10 @@
 import './App.css';
-import { Routes, Route, Link, useNavigate } from 'react-router-dom';
-import React, { useState, useReducer, useEffect } from 'react';
-import Header from './components/Header';
+import { HashRouter as Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 import ProductListPage from './pages/ProductListPage';
 import PaymentPage from './pages/PaymentPage';
-import CartPage from './pages/cartPage';
+import CartPage from './pages/CartPage.jsx';
 import NotFound from './pages/NotFound.jsx';
-import Button from './components/Button';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import ContextData from './components/context/ContextData.jsx';
 
@@ -48,40 +46,52 @@ function App() {
   };
 
   //장바구니 상품 수량 업데이트 함수
-  const handleUpedateQuantity = (productId, newQuantity) => {
-    if (newQuantity < 1) return;
+  // const handleUpdateQuantity = (productId, newQuantity) => {
+  //   if (newQuantity < 1) return;
 
-    setCartItems((prevCartItems) => {
+  //   setCartItems((prevCartItems) => {
+  //     prevCartItems.map((item) =>
+  //       item.id === productId ? { ...item, quantity: newQuantity } : item,
+  //     );
+  //   });
+  // };
+  const handleUpdateQuantity = (productId) => {
+    setCartItems((prevCartItems) =>
       prevCartItems.map((item) =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item,
-      );
-    });
+        item.id === productId
+          ? { ...item, quantity: (item.quantity || 0) + 1 }
+          : item,
+      ),
+    );
   };
 
-  //장바구니에서 상품 제거하는 함수
+  //장바구니에서 상품 갯수 감소 및 제거하는 함수
   const handleRemoveFromCart = (productId) => {
-    setCartItems((prevCartItems) =>
-      prevCartItems.filter((item) => item.id !== productId),
-    );
+    setCartItems((prevCartItems) => {
+      return prevCartItems
+        .map((item) => {
+          if (item.id === productId) {
+            // 수량이 1보다 크면 -1
+            return item.quantity > 1
+              ? { ...item, quantity: item.quantity - 1 }
+              : null; // 수량이 1이면 null로 표시
+          }
+          return item;
+        })
+        .filter(Boolean); // null 값 제거 (수량 1일 때 삭제)
+    });
   };
 
   const nav = useNavigate();
 
   return (
     <>
-      {/* <div>
-        <Link to={'/list'}>상품목록</Link>
-        <Link to={'/product/${product.id}'}>상품상세페이지</Link>
-        <Link to={'/payment'}>결제모듈</Link>
-        <Link to={'/cart'}>장바구니</Link>
-      </div> */}
-
       <ContextData.Provider
         value={{
           products, // 쇼핑몰의 전체 상품목록
           cartItems, // 사용자가 장바구니에 담은 상품들
           handleAddToCart, // 장바구니 추가 함수
-          handleUpedateQuantity, // 수량 변경 함수
+          handleUpdateQuantity, // 수량 변경 함수
           handleRemoveFromCart, // 장바구니에서 제거하는 함수
         }}
       >
