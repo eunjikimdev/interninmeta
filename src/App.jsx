@@ -1,5 +1,5 @@
 import './App.css';
-import { HashRouter as Routes, Route, useNavigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 import ProductListPage from './pages/ProductListPage';
 import PaymentPage from './pages/PaymentPage';
@@ -95,14 +95,16 @@ function App() {
           handleRemoveFromCart, // 장바구니에서 제거하는 함수
         }}
       >
-        <Routes>
-          <Route path="/" element={<ProductListPage />} />
-          <Route path="/list" element={<ProductListPage />} />
-          <Route path="/payment" element={<PaymentPage />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/product/:id" element={<ProductDetailPage />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <HashRouter>
+          <Routes>
+            <Route path="/" element={<ProductListPage />} />
+            <Route path="/list" element={<ProductListPage />} />
+            <Route path="/payment" element={<PaymentPage />} />
+            <Route path="/cart" element={<CartPage />} />
+            <Route path="/product/:id" element={<ProductDetailPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </HashRouter>
       </ContextData.Provider>
     </>
   );
