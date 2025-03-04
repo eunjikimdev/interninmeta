@@ -7,6 +7,8 @@ import CartPage from './pages/CartPage.jsx';
 import NotFound from './pages/NotFound.jsx';
 import ProductDetailPage from './pages/ProductDetailPage.jsx';
 import ContextData from './components/context/ContextData.jsx';
+import CardPage from './pages/CardPage.jsx';
+import PaymentComplete from './pages/PaymentComplete.jsx';
 
 function App() {
   //전체 상품 목록을 저장하는 state
@@ -101,6 +103,8 @@ function App() {
           <Route path="/payment" element={<PaymentPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/product/:id" element={<ProductDetailPage />} />
+          <Route path="/card" element={<CardPage />} />
+          <Route path="/paymentComplete" element={<PaymentComplete />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </ContextData.Provider>

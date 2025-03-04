@@ -67,7 +67,7 @@ const CartPage = () => {
           <Button
             text={'결제하기'}
             type={'Finish'}
-            onClick={() => nav('/payment')}
+            onClick={() => nav('/card')}
           ></Button>
         </div>
       </section>
