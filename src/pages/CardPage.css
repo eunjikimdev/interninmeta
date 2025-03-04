@@ -1,0 +1,33 @@
+.cardPage {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.registeredCard {
+  width: 252px;
+  height: 140px;
+  background-color: #333333;
+  border-radius: 5px;
+  margin-bottom: 16px;
+}
+
+.payend {
+  width: 240px;
+  height: 44px;
+  font-size: 16px;
+  border-radius: 20px;
+  margin-bottom: 28px;
+  background-color: #ffef64;
+}
+
+.emptyCard {
+  margin-top: 16px;
+  width: 252px;
+  height: 140px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  cursor: pointer;
+}

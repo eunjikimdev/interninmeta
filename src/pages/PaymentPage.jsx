@@ -42,82 +42,88 @@ const PaymentPage = () => {
         rightChild={<Button text={'X'} type={'BACK'} onClick={() => nav(-1)} />}
       />
       {/* <CardForm /> */}
-      <div
-        className="cardPreview"
-        style={{
-          width: '213px',
-          height: '133px',
-          backgroundColor: 'red',
-          borderRadius: '5px',
-        }}
-      ></div>
-      <form className="CardNumber">
-        <p>카드번호</p>
-        <input
-          type="number"
-          name="cardNumber"
-          value={cardData.cardNumber}
-          onChange={handleChange}
-          placeholder="0000-0000"
-        />
-      </form>
-      <form className="ExpiryDate">
-        <label htmlFor="">
-          <p>만료일</p>
+      <div className="cardForm">
+        <div
+          className="cardPreview"
+          style={{
+            width: '252px',
+            height: '140px',
+            backgroundColor: '#333333',
+            borderRadius: '5px',
+          }}
+        ></div>
+        <form className="CardNumber">
+          <p>카드번호</p>
           <input
             type="number"
-            name="expiryDate"
-            placeholder="MM/YY"
-            style={{ width: '137px' }}
-          />
-        </label>
-      </form>
-      <form className="CardHolder">
-        <label htmlFor="">
-          <p>카드소유자이름 0/30</p>
-          <input
-            type="text"
-            name="cardHolder"
-            placeholder="카드에 표시된 이름과 동일하게 입력하세요"
-            value={cardData.cardHolder}
+            name="cardNumber"
+            value={cardData.cardNumber}
             onChange={handleChange}
+            placeholder="0000-0000"
           />
-        </label>
-      </form>
-      <form className="SecurityCode">
-        <label htmlFor="">
-          <p>보안코드(CVC/CVV)</p>
-          <div className="flex">
+        </form>
+        <form className="ExpiryDate">
+          <label htmlFor="">
+            <p>만료일</p>
             <input
               type="number"
-              name="securityCode"
-              style={{ width: '84px' }}
+              name="expiryDate"
+              placeholder="MM/YY"
+              style={{ width: '137px' }}
             />
-            <div
-              className="questionMrk"
-              style={{
-                width: '27px',
-                height: '27px',
-                border: '1px solid #969696',
-                borderRadius: '16px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                color: '#969696',
-              }}
-            >
-              ?
+          </label>
+        </form>
+        <form className="CardHolder">
+          <label htmlFor="">
+            <p>카드소유자이름 0/30</p>
+            <input
+              type="text"
+              name="cardHolder"
+              placeholder="카드에 표시된 이름과 동일하게 입력하세요"
+              value={cardData.cardHolder}
+              onChange={handleChange}
+            />
+          </label>
+        </form>
+        <form className="SecurityCode">
+          <label htmlFor="">
+            <p>보안코드(CVC/CVV)</p>
+            <div className="flex">
+              <input
+                type="number"
+                name="securityCode"
+                style={{ width: '84px' }}
+              />
+              <div
+                className="questionMrk"
+                style={{
+                  width: '27px',
+                  height: '27px',
+                  border: '1px solid #969696',
+                  borderRadius: '16px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  color: '#969696',
+                }}
+              >
+                ?
+              </div>
             </div>
-          </div>
-        </label>
-      </form>
-      <form className="PinNumber">
-        <label htmlFor="">
-          <p>카드 비밀번호</p>
-          <input type="number" name="pinNumber" />
-        </label>
-      </form>
-      <Button text={'작성완료'} type={'Finish'} onClick={() => nav('/card')} />
+          </label>
+        </form>
+        <form className="PinNumber">
+          <label htmlFor="">
+            <p>카드 비밀번호</p>
+            <input type="number" name="pinNumber" />
+          </label>
+        </form>
+        <Button
+          text={'작성완료'}
+          type={'Finish'}
+          onClick={() => nav('/card')}
+        />
+      </div>
     </>
   );
 };

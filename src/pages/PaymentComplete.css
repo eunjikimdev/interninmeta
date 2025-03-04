@@ -1,0 +1,23 @@
+.paymentComplete-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 16px;
+  margin-top: 240px;
+}
+
+.paymentComplete-container h1 {
+  margin-bottom: 4px;
+}
+
+.paymentComplete-container h3 {
+  margin-bottom: 24px;
+}
+
+.paymentComplete-container h4 {
+  /* margin-bottom: 4px; */
+}
+
+.paymentComplete-container h2 {
+  margin-bottom: 16px;
+}
