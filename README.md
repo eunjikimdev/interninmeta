@@ -30,7 +30,7 @@
 
 ### 링크
 
-- Live Site URL: 게시예정
+- [Live Site URL](https://velvety-sorbet-24b6b7.netlify.app/) - 슈킹
 
 </br>
 
