@@ -51,25 +51,27 @@ const ProductDetailPage = () => {
         </div>
         <div className="product-description">
           <div className="product-info">
-            <h1>{product.name}</h1>
-            <h3>{product.description}</h3>
-            <h4>{product.price.toLocaleString()}원</h4>
-          </div>
+            <div className="row">
+              <h1>{product.name}</h1>
+              <div className="amount">
+                <button
+                  className="amount-btn"
+                  onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                >
+                  -
+                </button>
+                <p className="amount-num">{String(quantity).padStart(2, 0)}</p>
+                <button
+                  className="amount-btn"
+                  onClick={() => setQuantity((prev) => Math.max(1, prev + 1))}
+                >
+                  +
+                </button>
+              </div>
+            </div>
 
-          <div className="amount">
-            <button
-              className="amount-btn"
-              onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-            >
-              -
-            </button>
-            <p className="amount-num">{String(quantity).padStart(2, 0)}</p>
-            <button
-              className="amount-btn"
-              onClick={() => setQuantity((prev) => Math.max(1, prev + 1))}
-            >
-              +
-            </button>
+            <h3 className="product-info-description">{product.description}</h3>
+            <h4>{product.price.toLocaleString()}원</h4>
           </div>
         </div>
         <Button
@@ -84,7 +86,11 @@ const ProductDetailPage = () => {
           <h3>{product.name}의 다른 신발은 어떠신가요?</h3>
           <div className="otherproductList">
             {sameBrandProducts.map((product) => (
-              <Link key={product.id} to={`/product/${product.id}`}>
+              <Link
+                key={product.id}
+                to={`/product/${product.id}`}
+                onClick={() => setQuantity(1)}
+              >
                 <img src={product.image} alt={product.name}></img>
               </Link>
             ))}
