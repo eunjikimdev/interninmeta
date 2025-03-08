@@ -23,11 +23,19 @@ const ProductCard = ({ product, onAddToCart }) => {
         <p className="productDescription">{product.description}</p>
         <p className="productPrice">{product.price.toLocaleString()}원</p>
 
-        <Button
-          type={isAdded ? 'grey' : 'black'}
-          onClick={(e) => handleClick(e, product)}
-          text={isAdded ? '담김!' : '담기'}
-        ></Button>
+        <div className="buttonDiv">
+          <Button
+            type={isAdded ? 'grey' : 'black'}
+            onClick={(e) => handleClick(e, product)}
+            text={isAdded ? '담김!' : '담기'}
+          ></Button>
+
+          <Button
+            type={'grey'}
+            onClick={(e) => handleClick(e, product)}
+            text={'구매'}
+          ></Button>
+        </div>
       </div>
     </div>
   );
