@@ -43,9 +43,9 @@
 .Header {
   display: flex;
   align-items: center;
-  background-color: black;
-  color: white;
-  height: 69px;
+  background-color: #1c1b1f;
+  color: #e6e1e5;
+  height: 64px;
 }
 
 .Header_WHITE {

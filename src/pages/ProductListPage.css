@@ -4,21 +4,23 @@
 }
 
 .subject > h1 {
-  font-size: 30px;
-  font-weight: 800;
-  padding-bottom: 8px;
+  font-size: 24px;
+  font-weight: 700;
+  /* padding-bottom: 4px; */
+  letter-spacing: -1px;
 }
 
 .subject > p {
   font-size: 16px;
   font-weight: 400;
-  /* margin-bottom: 12px; */
+  letter-spacing: -1px;
 }
 
 .products-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
+  row-gap: 36px;
   /* padding: 10px; */
   justify-items: center;
   align-items: center;

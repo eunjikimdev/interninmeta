@@ -2,56 +2,56 @@
   "products": [
     {
       "id": 1,
-      "name": "브랜드A",
-      "description": "편안하고 착용감이 좋은 신발",
+      "name": "Addi",
+      "description": "편안하고 착용감이 좋은 신발 아이돌 N 착용제품!",
       "price": 35000,
       "image": "/images/shoes_1.jpg"
     },
     {
       "id": 2,
-      "name": "브랜드B",
-      "description": "귀여운 색감으로 유명한 신발",
+      "name": "Bana",
+      "description": "귀여운 색감으로 유명한 신발 반짝반짝 애니메이션 ppl",
       "price": 38000,
       "image": "/images/shoes_2.jpg"
     },
     {
       "id": 3,
-      "name": "브랜드C",
-      "description": "유명 브랜드 콜라보 신발",
+      "name": "Carrot",
+      "description": "유명 브랜드 콜라보 신발 올해 꼭 신어봐야할 신발 Top 3",
       "price": 32000,
       "image": "/images/shoes_3.jpg"
     },
     {
       "id": 4,
-      "name": "브랜드D",
+      "name": "Difin",
       "description": "발목이 아픈 사람을 위한 신발",
       "price": 72000,
       "image": "/images/shoes_4.jpg"
     },
     {
       "id": 5,
-      "name": "브랜드A",
+      "name": "Addi",
       "description": "푹신푹신한 신발",
       "price": 31000,
       "image": "/images/shoes_5.jpg"
     },
     {
       "id": 6,
-      "name": "브랜드B",
+      "name": "Bana",
       "description": "아이돌 광고제품",
       "price": 53000,
-      "image": "/images/shoes_6.jpg"
+      "image": "/images/shoes_3.jpg"
     },
     {
       "id": 7,
-      "name": "브랜드C",
+      "name": "Carrot",
       "description": "발렌타인 에디션",
       "price": 48000,
-      "image": "/images/shoes_6.jpg"
+      "image": "/images/shoes_1.jpg"
     },
     {
       "id": 8,
-      "name": "브랜드D",
+      "name": "Difin",
       "description": "여름철 인기제품",
       "price": 28000,
       "image": "/images/shoes_6.jpg"

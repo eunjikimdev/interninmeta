@@ -1,13 +1,12 @@
 .product-card {
   display: flex;
   flex-direction: column;
-  /* width: 184px; */
+  width: 182px;
   /* height: 247px; */
-  /* margin: 10px; */
   box-sizing: border-box;
-  border: 1px solid #f2f2f2;
+  /* border: 1px solid #f2f2f2; */
   border-radius: 15px;
-  /* padding: 10px; */
+
   overflow: hidden;
   justify-content: center;
   flex-wrap: wrap;
@@ -17,7 +16,7 @@
 
 .product-image-div {
   width: 100%;
-  height: 114px;
+  height: 112px;
   position: relative; /* 요소 자기 자신을 기준으로 배치  */
   overflow: hidden;
   background-position: center;
@@ -30,25 +29,42 @@
 }
 
 .product-info {
-  padding: 17px;
+  /* padding-left: 16px; */
+  /* padding: 17px; */
 }
 
 .productName {
+  margin-top: 16px;
   font-weight: 500;
   font-size: 16px;
-  margin-bottom: 7px;
+  margin-bottom: 4px;
 }
 
 .productDescription {
-  font-size: 12px;
+  font-size: 13px;
   margin-bottom: 7px;
   font-weight: 400;
+  line-height: 16px;
+  margin-bottom: 8px;
   color: #7c7a7a;
+  width: 10rem;
+  height: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .productPrice {
-  font-weight: 500;
-  margin-bottom: 7px;
+  font-weight: 800;
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.buttonDiv {
+  display: flex;
+  gap: 8px;
 }
 
 .button {
